@@ -1,0 +1,35 @@
+# Model Armor Hook Configuration
+# Set these as environment variables
+
+# Required: GCP Project ID
+MODEL_ARMOR_PROJECT: "your-project-id"
+
+# Required: Model Armor template ID (create in GCP Console)
+MODEL_ARMOR_TEMPLATE: "your-template-id"
+
+# Optional: GCP region (default: europe-west4)
+# Available: us-central1, europe-west4
+MODEL_ARMOR_LOCATION: "europe-west4"
+
+# Optional: Enforcement mode - "inspect" (default) or "block"
+# inspect = log warnings only, allow message through
+# block   = log warnings, clear content, push warning to user
+MODEL_ARMOR_ENFORCE: "inspect"
+
+# Optional: Skip sanitization for private/direct chats (default: false)
+MODEL_ARMOR_SKIP_DIRECT: "false"
+
+# Optional: Maximum text length to sanitize (default: 50000)
+MODEL_ARMOR_MAX_LENGTH: "50000"
+
+# ── Authentication ──────────────────────────────────────────────────
+# Auth strategy (in order of precedence):
+# 1. SA JSON key file at MODEL_ARMOR_SA_KEY_PATH (if set and file exists)
+# 2. gcloud auth print-access-token (fallback)
+
+# Optional: Path to GCP service account JSON key file
+MODEL_ARMOR_SA_KEY_PATH: "/path/to/service-account.json"
+
+# Optional: User email to impersonate via domain-wide delegation
+# Only used with SA key auth (strategy 1)
+MODEL_ARMOR_IMPERSONATE_USER: "user@example.com"
